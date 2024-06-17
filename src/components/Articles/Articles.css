@@ -1,0 +1,49 @@
+.articles-section {
+  height: 100vh;
+  display: block;
+  padding-top: 20px;
+  padding: 1rem;
+}
+
+ol {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 15px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0.5rem;
+  border: dashed blue;
+}
+
+li > img {
+  width: 50%;
+}
+
+.main-article {
+  grid-column: 1 / span 2;
+  grid-row: 1 / span 2;
+}
+
+.norm-article {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+@media (max-width: 800px) {
+  ol {
+    grid-template-columns: 1fr;
+  }
+  .main-article {
+    grid-column: span 1;
+  }
+}
