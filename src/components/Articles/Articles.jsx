@@ -1,18 +1,23 @@
 import "./Articles.css";
 import { getArticles } from "../../utils/api";
 import { useState, useEffect } from "react";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
+    setIsLoading(true)
     getArticles().then((articlesFromApi) => {
       setArticles(articlesFromApi);
+      setIsLoading(false)
     });
   }, []);
 
   return (
     <section className="articles-section">
+      {isLoading && <LoadingSpinner/>}
       <ol>
         {articles[0] && (
           <li key={articles[0].article_id} className="main-article">
