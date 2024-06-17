@@ -8,7 +8,6 @@ export const getArticles = () => {
     return ncNewsApi
     .get("/articles")
     .then(({data}) => {
-        console.log(data);
         return data.articles
     })
     .catch(err => {
