@@ -26,7 +26,15 @@ li {
 }
 
 li > img {
-  width: 50%;
+  width: 70%;
+}
+
+li > h4 {
+  font-size: small;
+}
+
+.articles-section p {
+  font-size: x-small;
 }
 
 .main-article {
