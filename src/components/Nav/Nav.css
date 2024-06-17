@@ -1,7 +1,8 @@
 .nav-section {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
+    padding-left:2rem;
     border: solid yellow;
     background-color: rgb(114, 112, 72);
 }
