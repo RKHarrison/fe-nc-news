@@ -1,0 +1,11 @@
+.nav-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border: solid yellow;
+    background-color: rgb(114, 112, 72);
+}
+
+.nav-section > p {
+    margin:0.5rem;
+}

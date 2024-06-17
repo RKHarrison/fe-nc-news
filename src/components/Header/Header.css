@@ -1,0 +1,12 @@
+.header-section {
+    display: flex;
+    justify-content: center;
+    border: solid red;
+    background-color: darkred;
+}
+
+h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
+  }
+
