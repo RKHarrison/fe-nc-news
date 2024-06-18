@@ -11,7 +11,6 @@ const Article = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const { article_id } = useParams();
-  console.log(article_id);
 
   useEffect(() => {
     setIsLoading(true);
@@ -27,8 +26,8 @@ const Article = () => {
         <LoadingSpinner />
       ) : (
         <section className="article-section">
-          {article.title && <ArticleCard article={article} />}
-          <Comments article_id={article.article_id} />
+          {article.title && <ArticleCard article={article}  setArticle={setArticle} />}
+          <Comments article={article}/>
         </section>
       )}
     </>
