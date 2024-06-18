@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getCommentsByArticleId } from "../../utils/api";
 import "./Comments.css"
+import CommentCard from "../CommentCard/CommentCard";
 
 const Comments = ({ article_id }) => {
   const [comments, setComments] = useState([]);
@@ -19,7 +20,7 @@ const Comments = ({ article_id }) => {
       <ol>
         {comments.map((comment) => (
           <li>
-        
+            <CommentCard comment={comment}/>
           </li>
         ))}
       </ol>
