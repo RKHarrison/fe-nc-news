@@ -7,7 +7,6 @@ import Articles from "./components/Articles/Articles";
 import Article from "./components/Article/Article";
 
 function App() {
-  const [articles, setArticles] = useState([]);
   const [article, setArticle] = useState({})
 
   return (
@@ -16,7 +15,7 @@ function App() {
       <Nav />
       <Routes>
         <Route path="/article/:article_id" element={<Article article={article}/>}/>
-        <Route path="/" element={<Articles articles={articles} setArticles={setArticles} setArticle={setArticle}/>}/>
+        <Route path="/" element={<Articles setArticle={setArticle}/>}/>
       </Routes>
     </>
   );

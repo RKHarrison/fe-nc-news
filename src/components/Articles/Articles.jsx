@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
-const Articles = ({ articles, setArticles, setArticle }) => {
+const Articles = ({ setArticle }) => {
+  const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
