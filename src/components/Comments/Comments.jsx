@@ -17,9 +17,9 @@ const Comments = ({ article_id }) => {
   return (
     <article className="comments-section">
       <h2>Comments...</h2>
-      <ol>
+      <ol className="comment-list">
         {comments.map((comment) => (
-          <li>
+          <li key={comment.comment_id}>
             <CommentCard comment={comment}/>
           </li>
         ))}

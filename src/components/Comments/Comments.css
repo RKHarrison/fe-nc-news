@@ -4,3 +4,8 @@
     margin-top: 3rem;
     font-size: x-small;
 }
+
+.comment-list {
+    display: flex;
+    flex-direction: column;
+}
