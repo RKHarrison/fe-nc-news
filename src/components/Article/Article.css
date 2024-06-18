@@ -4,19 +4,18 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    padding: 1rem;
+    padding: 2rem;
     border: dashed darkblue;
   }
   
-  article > img {
+  .article-section article > img {
     width: 45rem;
   }
   
-  article {
+  .article-section article {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    padding:1;
     width: 45rem;
     background-color: rgb(60, 60, 60);
   }

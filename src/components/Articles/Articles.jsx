@@ -20,6 +20,8 @@ const Articles = ({ setArticle }) => {
 
   const handleArticleClick = (article_id) => {
     setIsLoading(true);
+
+    
     getArticleById(article_id).then((articleFromApi) => {
       setArticle(articleFromApi);
       setIsLoading(false);
