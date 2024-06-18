@@ -11,7 +11,6 @@ const Article = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const { article_id } = useParams();
-  console.log(article_id);
 
   useEffect(() => {
     setIsLoading(true);
