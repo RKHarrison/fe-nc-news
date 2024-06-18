@@ -7,15 +7,15 @@ import Articles from "./components/Articles/Articles";
 import Article from "./components/Article/Article";
 
 function App() {
-  const [article, setArticle] = useState({})
+
 
   return (
     <>
       <Header />
       <Nav />
       <Routes>
-        <Route path="/article/:article_id" element={<Article article={article}/>}/>
-        <Route path="/" element={<Articles setArticle={setArticle}/>}/>
+        <Route path="/article/:article_id" element={<Article />}/>
+        <Route path="/" element={<Articles />}/>
       </Routes>
     </>
   );
