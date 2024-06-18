@@ -36,3 +36,14 @@ export const getCommentsByArticleId = (article_id) => {
       console.log(err);
     });
 };
+
+export const patchArticle = (article_id, vote) => {
+  return ncNewsApi
+  .patch(`articles/${article_id}`, {inc_votes: vote})
+  .then(({data}) => {
+    return data.article
+  })
+  .catch((err) => {
+    console.log(err);
+  })
+}
