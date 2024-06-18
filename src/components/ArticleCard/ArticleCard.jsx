@@ -1,3 +1,5 @@
+import './ArticleCard.css'
+
 const ArticleCard = ({article}) => {
   return (
     <article>
@@ -7,8 +9,12 @@ const ArticleCard = ({article}) => {
             Created by {article.author} on {article.created_at.slice(0, 10)}
           </h3>
           <p>Topic: {article.topic}</p>
-          <p>Votes: {article.votes}</p>
           <p>{article.body}</p>
+          <fieldset>Up or down Vote this article!
+          <p>Votes: {article.votes}</p>
+          <button>+</button>
+          <button>-</button>
+          </fieldset>
     </article>
   );
 };
