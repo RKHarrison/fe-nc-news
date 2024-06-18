@@ -6,11 +6,10 @@ import ArticlesCard from "../ArticlesCard/ArticlesCard";
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
 
   useEffect(() => {
-    setIsLoading(true);
     getArticles().then((articlesFromApi) => {
       setArticles(articlesFromApi);
       setIsLoading(false);

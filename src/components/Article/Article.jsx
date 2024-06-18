@@ -9,7 +9,6 @@ import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 const Article = () => {
   const [article, setArticle] = useState({});
   const [isLoading, setIsLoading] = useState(false);
-
   const { article_id } = useParams();
 
   useEffect(() => {
@@ -26,8 +25,10 @@ const Article = () => {
         <LoadingSpinner />
       ) : (
         <section className="article-section">
-          {article.title && <ArticleCard article={article}  setArticle={setArticle} />}
-          <Comments article={article}/>
+          {article.title && (
+            <ArticleCard article={article} setArticle={setArticle} />
+          )}
+          <Comments />
         </section>
       )}
     </>
