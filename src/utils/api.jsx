@@ -14,3 +14,14 @@ export const getArticles = () => {
       console.log(err);
     });
 };
+
+export const getArticleById = (article_id) => {
+  return ncNewsApi
+    .get(`/articles/${article_id}`)
+    .then(({ data }) => {
+      return data.article;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
