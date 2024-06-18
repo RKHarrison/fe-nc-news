@@ -20,14 +20,14 @@ const Comments = ({ article_id }) => {
   return (
     <article className="comments-section">
       <h2>Comments...</h2>
-      {isLoading &&( <LoadingSpinner/>)}
-      <ol className="comment-list">
+      {isLoading? ( <LoadingSpinner/>) : 
+      (<ol className="comment-list">
         {comments.map((comment) => (
           <li key={comment.comment_id}>
             <CommentCard comment={comment}/>
           </li>
         ))}
-      </ol>
+      </ol>)}
     </article>
   );
 };
