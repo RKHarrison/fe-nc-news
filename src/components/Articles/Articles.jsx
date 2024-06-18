@@ -9,6 +9,7 @@ const Articles = ({ setArticle }) => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
+
   useEffect(() => {
     setIsLoading(true);
     getArticles().then((articlesFromApi) => {
