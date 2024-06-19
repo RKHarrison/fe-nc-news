@@ -11,7 +11,6 @@ export const postCommentByArticleId = (article_id, newComment) => {
       username: newComment.username,
     })
     .then(({ data }) => {
-      console.log(newComment);
       return data.postedComment;
     })
     .catch((err) => {
