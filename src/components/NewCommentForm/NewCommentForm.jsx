@@ -1,17 +1,21 @@
 import "./NewCommentForm.css";
-import { useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { UserContext } from "../../Context/UserContext";
 import { postCommentByArticleId } from "../../utils/api";
 
 const NewCommentForm = ({ setComments }) => {
+  const { user } = useContext(UserContext);
   const [apiCommentError, setApiCommentError] = useState(false);
   const [hasPosted, setHasPosted] = useState(false);
   const { article_id } = useParams();
-  const defaultNewComment = {
-    username: "tickle122",
+
+  const blankNewComment = {
+    username: user.username,
     body: "",
   };
-  const [newComment, setNewComment] = useState(defaultNewComment);
+
+  const [newComment, setNewComment] = useState(blankNewComment);
 
   const handleChange = (event) => {
     setNewComment((newComment) => ({
@@ -28,13 +32,13 @@ const NewCommentForm = ({ setComments }) => {
       { ...newComment, comment_id: `newcomment${comments.length}` },
       ...comments,
     ]);
-    setNewComment(defaultNewComment);
+    setNewComment(blankNewComment);
 
     postCommentByArticleId(article_id, newComment).catch(() => {
       setComments((comments) => comments.slice(1));
       setHasPosted(false);
       setApiCommentError(true);
-      setNewComment(defaultNewComment);
+      setNewComment(blankNewComment);
     });
   };
 
