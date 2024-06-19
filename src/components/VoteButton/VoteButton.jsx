@@ -9,17 +9,13 @@ const VoteButton = ({ setArticle }) => {
 
   const [activeButton, setActiveButton] = useState("");
   const [storedVote, setStoredVote] = useState(0);
-  const [vote, setVote] = useState(0);
   const { article_id } = useParams();
+
 
   const handleVoteClick = (buttonVote) => {
     setApiVoteError(false);
 
-    if (storedVote === buttonVote) {
-      setVote(0);
-    } else {
-      setVote(buttonVote);
-    }
+    const vote = storedVote === buttonVote ? 0 : buttonVote;
     setStoredVote(vote);
 
     setArticle((currentArticle) => ({
@@ -38,7 +34,7 @@ const VoteButton = ({ setArticle }) => {
   };
 
   useEffect(() => {
-    switch (vote) {
+    switch (storedVote) {
       case 1:
         setActiveButton("upvote-btn");
         break;
@@ -49,12 +45,7 @@ const VoteButton = ({ setArticle }) => {
         setActiveButton("downvote-btn");
         break;
     }
-  }, [vote]);
-
-  
-  useEffect(() => {
-    console.log(activeButton, "yes");
-  }, [activeButton]);
+  }, [storedVote]);
 
   return (
     <>
