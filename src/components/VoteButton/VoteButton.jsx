@@ -6,8 +6,6 @@ import { FaArrowCircleUp, FaArrowCircleDown } from "react-icons/fa";
 
 const VoteButton = ({ setArticle }) => {
   const [apiVoteError, setApiVoteError] = useState(false);
-
-  const [activeButton, setActiveButton] = useState("");
   const [storedVote, setStoredVote] = useState(0);
   const { article_id } = useParams();
 
@@ -33,28 +31,14 @@ const VoteButton = ({ setArticle }) => {
     });
   };
 
-  useEffect(() => {
-    switch (storedVote) {
-      case 1:
-        setActiveButton("upvote-btn");
-        break;
-      case 0:
-        setActiveButton("");
-        break;
-      case -1:
-        setActiveButton("downvote-btn");
-        break;
-    }
-  }, [storedVote]);
-
   return (
     <>
       <FaArrowCircleDown
-        className={activeButton === "downvote-btn" ? "active-btn" : ""}
+        className={storedVote === -1 ? "active-btn" : ""}
         onClick={() => handleVoteClick(-1)}
       />
       <FaArrowCircleUp
-        className={activeButton === "upvote-btn" ? "active-btn" : ""}
+        className={storedVote === 1 ? "active-btn" : ""}
         onClick={() => handleVoteClick(1)}
       />
 
