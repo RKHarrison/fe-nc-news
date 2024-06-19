@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getCommentsByArticleId } from "../../utils/api";
 import "./Comments.css"
 import CommentCard from "../CommentCard/CommentCard";
+import NewCommentForm from "../NewCommentForm/NewCommentForm";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import { useParams } from "react-router-dom";
 
@@ -20,6 +21,7 @@ const Comments = () => {
   return (
     <article className="comments-section">
       <h2>Comments...</h2>
+      <NewCommentForm setComments={setComments}/>
       {isLoading? <LoadingSpinner/> : (
       <ol className="comment-list">
         {comments.map((comment) => (

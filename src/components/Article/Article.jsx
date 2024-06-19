@@ -24,7 +24,7 @@ const Article = () => {
         <LoadingSpinner />
       ) : (
         <section className="article-section">
-            <ArticleCard article={article} setArticle={setArticle} />
+          <ArticleCard article={article} setArticle={setArticle} />
           <Comments />
         </section>
       )}
