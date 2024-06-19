@@ -4,6 +4,22 @@ const ncNewsApi = axios.create({
   baseURL: "https://rh-nc-news.onrender.com/api/",
 });
 
+export const postCommentByArticleId = (article_id, newComment) => {
+  return ncNewsApi
+    .post(`articles/${article_id}/comments`, {
+      body: newComment.body,
+      username: newComment.username,
+    })
+    .then(({ data }) => {
+      console.log(newComment);
+      return data.postedComment;
+    })
+    .catch((err) => {
+      console.log(err);
+      return Promise.reject(err);
+    });
+};
+
 export const getArticles = () => {
   return ncNewsApi
     .get("/articles")

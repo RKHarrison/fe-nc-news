@@ -21,7 +21,7 @@ const Comments = () => {
   return (
     <article className="comments-section">
       <h2>Comments...</h2>
-      <NewCommentForm></NewCommentForm>
+      <NewCommentForm setComments={setComments}/>
       {isLoading? <LoadingSpinner/> : (
       <ol className="comment-list">
         {comments.map((comment) => (
