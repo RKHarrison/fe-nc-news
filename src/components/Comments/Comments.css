@@ -1,11 +1,20 @@
 .comments-section {
-    padding: 1rem;
-    border: solid green;
-    margin-top: 3rem;
-    font-size: x-small;
+  padding: 1rem;
+  border: solid green;
+  margin-top: 3rem;
+  font-size: x-small;
+}
+
+.comments-section h5 {
+  font-style: italic;
+}
+
+.comments-section input {
+  width: 20rem;
+  height: fit-content;
 }
 
 .comment-list {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
