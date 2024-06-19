@@ -7,7 +7,7 @@ import { postCommentByArticleId } from "../../utils/api";
 
 const NewCommentForm = ({ setComments }) => {
   const [apiCommentError, setApiCommentError] = useState(false);
-  const [hasPosted, setHasPosted] = useState(false)
+  const [hasPosted, setHasPosted] = useState(false);
   const { article_id } = useParams();
 
   const defaultNewComment = {
@@ -27,8 +27,11 @@ const NewCommentForm = ({ setComments }) => {
     setApiCommentError(false);
     event.preventDefault();
 
-setHasPosted(true)
-    setComments((comments) => [newComment, ...comments]);
+    setHasPosted(true);
+    setComments((comments) => [
+      { ...newComment, comment_id: `newcomment${comments.length}` },
+      ...comments,
+    ]);
     setNewComment(defaultNewComment);
     postCommentByArticleId(article_id, newComment).catch(() => {
       setApiCommentError(true);
@@ -38,27 +41,28 @@ setHasPosted(true)
 
   return (
     <>
-    {!hasPosted && (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Post a comment about this article...
-        <input
-          value={newComment.body}
-          onChange={handleChange}
-          name="body"
-          type="text"
-          required
-          minLength={10}
-          maxLength={60}
-        />
-      </label>
-      <button>Post comment!</button>
-      {apiCommentError && (
-        <section className="error-message">
-          Could not register your vote, please try again!
-        </section>
+      {!hasPosted && (
+        <form onSubmit={handleSubmit}>
+          <label>
+            Post a comment about this article...
+            <input
+              value={newComment.body}
+              onChange={handleChange}
+              name="body"
+              type="text"
+              required
+              minLength={10}
+              maxLength={600}
+            />
+          </label>
+          <button>Post comment!</button>
+          {apiCommentError && (
+            <section className="error-message">
+              Could not register your vote, please try again!
+            </section>
+          )}
+        </form>
       )}
-    </form>)}
     </>
   );
 };
