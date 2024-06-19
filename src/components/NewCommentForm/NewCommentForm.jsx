@@ -3,12 +3,11 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { postCommentByArticleId } from "../../utils/api";
 
-// PATCH REQ needs artice_id from useParams
-// PATCH REQ needs BODY needs comment 'body' and 'username'
 // USERNAME && !hasPOSTED && form
 
 const NewCommentForm = ({ setComments }) => {
   const [apiCommentError, setApiCommentError] = useState(false);
+  const [hasPosted, setHasPosted] = useState(false)
   const { article_id } = useParams();
 
   const defaultNewComment = {
@@ -28,6 +27,7 @@ const NewCommentForm = ({ setComments }) => {
     setApiCommentError(false);
     event.preventDefault();
 
+setHasPosted(true)
     setComments((comments) => [newComment, ...comments]);
     setNewComment(defaultNewComment);
     postCommentByArticleId(article_id, newComment).catch(() => {
@@ -37,6 +37,8 @@ const NewCommentForm = ({ setComments }) => {
   };
 
   return (
+    <>
+    {!hasPosted && (
     <form onSubmit={handleSubmit}>
       <label>
         Post a comment about this article...
@@ -56,7 +58,8 @@ const NewCommentForm = ({ setComments }) => {
           Could not register your vote, please try again!
         </section>
       )}
-    </form>
+    </form>)}
+    </>
   );
 };
 
