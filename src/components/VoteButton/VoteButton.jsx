@@ -7,33 +7,34 @@ import { FaArrowCircleUp, FaArrowCircleDown } from "react-icons/fa";
 const VoteButton = ({ setArticle }) => {
   const [apiVoteError, setApiVoteError] = useState(false);
 
-  const [storedButtonVote, setStoredButtonVote] = useState(0);
-  const [newVote, setNewVote] = useState(0)
+
+  const [storedVote, setStoredVote] = useState(0);
+  const [vote, setVote] = useState(0)
   const { article_id } = useParams();
 
 
   const handleVoteClick = (buttonVote) => {
     setApiVoteError(false);
     
-    if (storedButtonVote === buttonVote) {
-      setNewVote(0);
+    if (storedVote === buttonVote) {
+      setVote(0);
     } else {
-      setNewVote(buttonVote);
+      setVote(buttonVote);
     }
-    setStoredButtonVote(newVote)
+    setStoredVote(vote)
 
 
     setArticle((currentArticle) => ({
       ...currentArticle,
-      votes: currentArticle.votes + (newVote-storedButtonVote),
+      votes: currentArticle.votes + (vote-storedVote),
     }));
     
-    patchArticle(article_id, newVote-storedButtonVote).catch(() => {
+    patchArticle(article_id, vote-storedVote).catch(() => {
       setApiVoteError(true);
-      setStoredButtonVote((currentVote) => currentVote - buttonVote);
+      setStoredVote((currentVote) => currentVote - buttonVote);
       setArticle((currentArticle) => ({
         ...currentArticle,
-        votes: currentArticle.votes + (newVote-storedButtonVote),
+        votes: currentArticle.votes + (vote-storedVote),
       }));
     });
   };
