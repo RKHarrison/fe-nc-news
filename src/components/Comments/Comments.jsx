@@ -3,20 +3,19 @@ import { getCommentsByArticleId } from "../../utils/api";
 import "./Comments.css"
 import CommentCard from "../CommentCard/CommentCard";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
+import { useParams } from "react-router-dom";
 
-const Comments = ({ article_id }) => {
+const Comments = () => {
   const [comments, setComments] = useState([]);
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
+  const {article_id} = useParams()
 
   useEffect(() => {
-    if (article_id) {
-      setIsLoading(true)
       getCommentsByArticleId(article_id).then((commentsFromApi) => {
         setComments(commentsFromApi);
         setIsLoading(false)
       });
-    }
-  }, [article_id]);
+  }, []);
 
   return (
     <article className="comments-section">

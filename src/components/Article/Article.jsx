@@ -8,13 +8,10 @@ import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 const Article = () => {
   const [article, setArticle] = useState({});
-  const [isLoading, setIsLoading] = useState(false);
-
+  const [isLoading, setIsLoading] = useState(true);
   const { article_id } = useParams();
-  console.log(article_id);
 
   useEffect(() => {
-    setIsLoading(true);
     getArticleById(article_id).then((articleFromApi) => {
       setArticle(articleFromApi);
       setIsLoading(false);
@@ -27,8 +24,8 @@ const Article = () => {
         <LoadingSpinner />
       ) : (
         <section className="article-section">
-          {article.title && <ArticleCard article={article} />}
-          <Comments article_id={article.article_id} />
+            <ArticleCard article={article} setArticle={setArticle} />
+          <Comments />
         </section>
       )}
     </>

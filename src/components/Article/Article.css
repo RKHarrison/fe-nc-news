@@ -5,22 +5,23 @@
     align-items: center;
     justify-content: center;
     padding: 2rem;
-    border: dashed darkblue;
   }
   
   .article-section article > img {
-    width: 45rem;
+    width: 100%;
   }
   
   .article-section article {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    width: 45rem;
-    background-color: rgb(60, 60, 60);
+    width: 30rem;
+    font-size: x-large;
   }
-  
-  @media (max-width: 755px) {
+
+
+    
+  @media (max-width: 900px) {
     article > img {
       max-width: 100%;
      }
@@ -28,4 +29,3 @@
       max-width: 100%;
     }
   }
-  

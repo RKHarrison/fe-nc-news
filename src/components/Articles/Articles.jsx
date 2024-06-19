@@ -6,11 +6,10 @@ import ArticlesCard from "../ArticlesCard/ArticlesCard";
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
 
   useEffect(() => {
-    setIsLoading(true);
     getArticles().then((articlesFromApi) => {
       setArticles(articlesFromApi);
       setIsLoading(false);
@@ -19,13 +18,13 @@ const Articles = () => {
 
   return (
     <section className="articles-section">
+      <div className="grid-wrapper">
       {isLoading ? (
         <LoadingSpinner />
       ) : (
         <ol>
           {articles[0] && (
             <li
-              // onClick={() => handleArticleClick(articles[0].article_id)}
               key={articles[0].article_id}
               className="main-article"
             >
@@ -34,7 +33,6 @@ const Articles = () => {
           )}
           {articles.slice(1).map((article) => (
             <li
-              // onClick={() => handleArticleClick(article.article_id)}
               key={article.article_id}
               className="norm-article"
             >
@@ -43,6 +41,7 @@ const Articles = () => {
           ))}
         </ol>
       )}
+      </div>
     </section>
   );
 };

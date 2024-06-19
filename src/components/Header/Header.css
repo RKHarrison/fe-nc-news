@@ -1,12 +1,12 @@
 .header-section {
     display: flex;
-    justify-content: center;
-    border: solid red;
-    background-color: darkred;
+    justify-content: left;
+    background-color: var(--primary-color);
 }
 
 h1 {
-    font-size: 3.2em;
+    margin-left: 3rem; 
+    font-size: 4.2rem;
     line-height: 1.1;
   }
 
