@@ -1,10 +1,7 @@
-button {
-    display: inline-block;
-    margin:0.5rem;
-    width: 2rem;
-    height:2rem;
-    font-size: larger;
-}
+.active-btn {
+    color: blue
+  }
+
 
 .error-message {
     margin: 1rem;
