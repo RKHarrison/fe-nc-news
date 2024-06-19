@@ -7,26 +7,33 @@ import { FaArrowCircleUp, FaArrowCircleDown } from "react-icons/fa";
 const VoteButton = ({ setArticle }) => {
   const [apiVoteError, setApiVoteError] = useState(false);
 
-  const [vote, setVote] = useState(0);
+  const [storedButtonVote, setStoredButtonVote] = useState(0);
+  const [newVote, setNewVote] = useState(0)
   const { article_id } = useParams();
 
 
-
-  const handleVoteClick = (voteButton) => {
+  const handleVoteClick = (buttonVote) => {
     setApiVoteError(false);
+    
+    if (storedButtonVote === buttonVote) {
+      setNewVote(0);
+    } else {
+      setNewVote(buttonVote);
+    }
+    setStoredButtonVote(newVote)
 
-    setVote((currentVote) => currentVote + voteButton);
+
     setArticle((currentArticle) => ({
       ...currentArticle,
-      votes: currentArticle.votes + voteButton,
+      votes: currentArticle.votes + (newVote-storedButtonVote),
     }));
     
-    patchArticle(article_id, voteButton).catch(() => {
+    patchArticle(article_id, newVote-storedButtonVote).catch(() => {
       setApiVoteError(true);
-      setVote((currentVote) => currentVote - voteButton);
+      setStoredButtonVote((currentVote) => currentVote - buttonVote);
       setArticle((currentArticle) => ({
         ...currentArticle,
-        votes: currentArticle.votes - voteButton,
+        votes: currentArticle.votes + (newVote-storedButtonVote),
       }));
     });
   };
@@ -35,8 +42,8 @@ const VoteButton = ({ setArticle }) => {
     <>
 
 
-      {vote >= 0 &&  <FaArrowCircleDown onClick={() => handleVoteClick(-1)}/>}
-      {vote <= 0 &&  <FaArrowCircleUp onClick={() => handleVoteClick(1)}/>}
+      {storedButtonVote >= 0 &&  <FaArrowCircleDown onClick={() => handleVoteClick(-1)}/>}
+      {storedButtonVote <= 0 &&  <FaArrowCircleUp onClick={() => handleVoteClick(1)}/>}
       
       {apiVoteError && (
         <section className="error-message">
