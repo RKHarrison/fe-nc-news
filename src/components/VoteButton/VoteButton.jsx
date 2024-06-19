@@ -40,10 +40,8 @@ const VoteButton = ({ setArticle }) => {
 
   return (
     <>
-
-
-      {storedButtonVote >= 0 &&  <FaArrowCircleDown onClick={() => handleVoteClick(-1)}/>}
-      {storedButtonVote <= 0 &&  <FaArrowCircleUp onClick={() => handleVoteClick(1)}/>}
+    <FaArrowCircleDown onClick={() => handleVoteClick(-1)}/>
+    <FaArrowCircleUp onClick={() => handleVoteClick(1)}/>
       
       {apiVoteError && (
         <section className="error-message">
