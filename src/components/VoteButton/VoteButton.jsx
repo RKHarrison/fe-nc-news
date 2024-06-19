@@ -1,7 +1,7 @@
 import "./VoteButton.css";
 import { useParams } from "react-router-dom";
 import { patchArticle } from "../../utils/api";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FaArrowCircleUp, FaArrowCircleDown } from "react-icons/fa";
 
 const VoteButton = ({ setArticle }) => {

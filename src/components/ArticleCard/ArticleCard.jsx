@@ -13,11 +13,7 @@ const ArticleCard = ({ article, setArticle }) => {
       </h3>
       <p>Topic: {article.topic}</p>
       <p>{article.body}</p>
-      <fieldset>
-        Up or down Vote this article!
-        <p>Votes: {article.votes}</p>
-        <VoteButton setArticle={setArticle} />
-      </fieldset>
+      <section className='article-votes'>Votes: {article.votes} <VoteButton setArticle={setArticle} /> </section>
     </article>
   );
 };
