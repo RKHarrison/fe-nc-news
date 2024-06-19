@@ -18,6 +18,7 @@ const NewCommentForm = ({ setComments }) => {
       ...newComment,
       [event.target.name]: event.target.value,
     }));
+    apiCommentError && setApiCommentError(false);
   };
 
   const handleSubmit = (event) => {
@@ -28,7 +29,7 @@ const NewCommentForm = ({ setComments }) => {
       ...comments,
     ]);
     setNewComment(defaultNewComment);
-    
+
     postCommentByArticleId(article_id, newComment).catch(() => {
       setComments((comments) => comments.slice(1));
       setHasPosted(false);
