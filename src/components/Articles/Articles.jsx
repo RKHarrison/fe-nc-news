@@ -18,6 +18,7 @@ const Articles = () => {
 
   return (
     <section className="articles-section">
+      <div className="grid-wrapper">
       {isLoading ? (
         <LoadingSpinner />
       ) : (
@@ -40,6 +41,7 @@ const Articles = () => {
           ))}
         </ol>
       )}
+      </div>
     </section>
   );
 };
