@@ -21,6 +21,7 @@ const Articles = () => {
   }, [topic]);
 
   return (
+    <>
     <section className="articles-section">
       <div className="grid-wrapper">
       {isLoading ? (
@@ -47,6 +48,7 @@ const Articles = () => {
       )}
       </div>
     </section>
+    </>
   );
 };
 
