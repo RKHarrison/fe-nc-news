@@ -8,8 +8,8 @@ const CommentCard = ({ comment, comments, setComments }) => {
     <>
       <p>{comment.body}</p>
       <h3>{comment.author}</h3>
-      {user.username === comment.author || String(comment.comment_id).startsWith('tempId') ? (
-        <DeleteButton
+      {user.username === comment.author && !String(comment.comment_id).startsWith('tempId') ? (
+         <DeleteButton
           comment={comment}
           comments={comments}
           setComments={setComments}
