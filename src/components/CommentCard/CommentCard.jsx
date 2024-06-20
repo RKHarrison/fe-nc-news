@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import DeleteButton from "../DeleteButton/DeleteButton";
 import { UserContext } from "../../Context/UserContext";
-import { hasTemporaryId } from "../Utils/component-utils";
+import {hasTemporaryId } from "../Utils/component-utils"
 
 const CommentCard = ({ comment, comments, setComments }) => {
   const { user } = useContext(UserContext);

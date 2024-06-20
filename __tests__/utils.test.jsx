@@ -1,4 +1,4 @@
-const hasTemporaryId = require("../src/components/Utils/component-utils")
+import { hasTemporaryId } from "../src/components/Utils/component-utils";
 
 describe('hasTemporaryId', () => {
   it('should return false given a comment without a comment_id', () => {

@@ -6,7 +6,7 @@ const ncNewsApi = axios.create({
 
 export const postCommentByArticleId = (article_id, newComment) => {
   return ncNewsApi
-    .post(`articles/${article_id}/comments`, {
+    .post(`articles/${article_id}/commentsERR`, {
       body: newComment.body,
       username: newComment.author,
     })
@@ -73,11 +73,11 @@ export const deleteCommentById = (comment_id) => {
   return ncNewsApi
     .delete(`/comments/${comment_id}`)
     .then((response) => {
-      alert("comment deleted!")
+      alert("comment deleted!");
       console.log(response);
     })
     .catch((err) => {
-      alert('could not delete comment')
+      alert("could not delete comment");
       Promise.reject(err);
     });
 };
