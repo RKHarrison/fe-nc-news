@@ -41,7 +41,7 @@ describe("formatDateStamp", () => {
   it("should not mutate input object", () => {
     const dateStamp = "0001-01-01T00:00:00Z";
     const dateStampCopy = "0001-01-01T00:00:00Z";
-    formatDateStamp(dateStamp)    
+    formatDateStamp(dateStamp);
     expect(dateStamp).toEqual(dateStampCopy);
   });
 });
