@@ -5,9 +5,8 @@ const SortSelect = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const handleChange = (event) => {
-        const selecterValues = event.target.value.split(',');
-        let selectedSearch = { sort_by: selecterValues[0], order: selecterValues[1] };
-        setSearchParams(selectedSearch)
+        const selectValue = event.target.value.split(',');
+        setSearchParams({ sort_by: selectValue[0], order: selectValue[1] })
   };
 
   return (

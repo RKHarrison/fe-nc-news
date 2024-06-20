@@ -2,6 +2,7 @@ import "./Nav.css";
 import { Link } from "react-router-dom";
 import { useParams, useSearchParams } from "react-router-dom";
 import SortSelect from "../SortBySelect/SortBySelect";
+import { useEffect } from "react";
 
 const Nav = () => {
 
