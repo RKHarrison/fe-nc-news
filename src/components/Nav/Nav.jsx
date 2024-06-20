@@ -4,7 +4,10 @@ import { Link } from "react-router-dom";
 const Nav = () => {
   return (
     <nav>
-      <Link className="nav-link" to="/">Latest</Link>
+      <Link className="nav-link" to="/">Latest News</Link>
+      <Link className="nav-link" to="/coding">Coding</Link>
+      <Link className="nav-link" to="/football">Football</Link>
+      <Link className="nav-link" to="/cooking">Cooking</Link>
     </nav>
   );
 };

@@ -19,9 +19,9 @@ export const postCommentByArticleId = (article_id, newComment) => {
     });
 };
 
-export const getArticles = () => {
+export const getArticles = (topic) => {
   return ncNewsApi
-    .get("/articles")
+    .get("/articles", {params:{topic}})
     .then(({ data }) => {
       return data.articles;
     })
