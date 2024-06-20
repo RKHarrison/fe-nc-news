@@ -24,7 +24,3 @@ const CommentCard = ({ comment, comments, setComments }) => {
 };
 
 export default CommentCard;
-
-function isTemporaryId(comment) {
-  return String(comment.comment_id).startsWith("tempId");
-}
