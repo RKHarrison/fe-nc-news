@@ -1,7 +1,7 @@
 import "./Nav.css";
 import { Link } from "react-router-dom";
 import { useParams, useSearchParams } from "react-router-dom";
-import SortSelect from "../SortSelect/SortSelect";
+import SortSelect from "../SortBySelect/SortBySelect";
 
 const Nav = () => {
 
