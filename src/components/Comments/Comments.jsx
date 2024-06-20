@@ -32,11 +32,17 @@ const Comments = () => {
         <LoadingSpinner />
       ) : (
         <ol className="comment-list">
-          {comments.length && comments.map((comment) => (
-            <li key={comment.comment_id}>
-              <CommentCard className="comment" comment={comment} comments={comments} setComments={setComments} />
-            </li>
-          ))}
+          {comments.length &&
+            comments.map((comment) => (
+              <li key={comment.comment_id}>
+                <CommentCard
+                  className="comment"
+                  comment={comment}
+                  comments={comments}
+                  setComments={setComments}
+                />
+              </li>
+            ))}
         </ol>
       )}
     </article>

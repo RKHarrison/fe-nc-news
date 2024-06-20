@@ -22,35 +22,17 @@
 }
 
 .comments-section li {
-  display:flex;
+  display: flex;
   flex-direction: column;
-  max-width:35rem;
+  max-width: 35rem;
 }
 
 .comments-section button {
-  max-width: 10rem;;
+  max-width: 10rem;
 }
-
-/* .comments-section p {
-  display: flex;
-  flex-direction: column;
-  text-wrap:wrap;
-  max-width: 10px;;
-} */
-
-/* .comments-section p {
-  display: flex;
-  flex-direction: column;
-  text-wrap:wrap;
-  max-width: 10px;;
-} */
-
 
 @media (max-width: 440px) {
-
-.comments-section p {
-  max-width: 17rem ;
-}
-
-
+  .comments-section p {
+    max-width: 17rem;
+  }
 }

@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import DeleteButton from "../DeleteButton/DeleteButton";
 import { UserContext } from "../../Context/UserContext";
-import {hasTemporaryId } from "../Utils/component-utils"
+import { hasTemporaryId } from "../Utils/component-utils";
 
 const CommentCard = ({ comment, comments, setComments }) => {
   const { user } = useContext(UserContext);
@@ -10,12 +10,14 @@ const CommentCard = ({ comment, comments, setComments }) => {
       <p>{comment.body}</p>
       <h3>{comment.author}</h3>
       {user.username === comment.author && !hasTemporaryId(comment) ? (
-         <DeleteButton
+        <DeleteButton
           comment={comment}
           comments={comments}
           setComments={setComments}
         />
-      ) : <h5>Uploading your comment...</h5>}
+      ) : (
+        <h5>Uploading your comment...</h5>
+      )}
       <p>comment votes: {comment.votes}</p>
     </>
   );
@@ -23,8 +25,6 @@ const CommentCard = ({ comment, comments, setComments }) => {
 
 export default CommentCard;
 
-
 function isTemporaryId(comment) {
-  return String(comment.comment_id).startsWith('tempId');
+  return String(comment.comment_id).startsWith("tempId");
 }
-
