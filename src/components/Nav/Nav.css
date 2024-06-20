@@ -2,7 +2,7 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  height: 33px;
+  height: 35px;
   padding-top: 3px;
   padding-left: 2rem;
   border-top: solid rgb(233, 58, 58);
@@ -14,5 +14,12 @@ nav {
 }
 
 .nav-link {
-  color: white
+  margin-bottom: 2px;
+  color: var(--light-color)
 }
+
+.nav-link:focus {
+ text-decoration: underline;
+}
+
+
