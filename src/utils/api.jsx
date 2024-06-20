@@ -6,7 +6,7 @@ const ncNewsApi = axios.create({
 
 export const postCommentByArticleId = (article_id, newComment) => {
   return ncNewsApi
-    .post(`articles/${article_id}/commentsERR`, {
+    .post(`articles/${article_id}/comments`, {
       body: newComment.body,
       username: newComment.author,
     })

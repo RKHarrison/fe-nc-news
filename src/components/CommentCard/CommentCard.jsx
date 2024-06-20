@@ -15,7 +15,7 @@ const CommentCard = ({ comment, comments, setComments }) => {
           comments={comments}
           setComments={setComments}
         />
-      ) : <></>}
+      ) : <h5>Uploading your comment...</h5>}
       <p>comment votes: {comment.votes}</p>
     </>
   );
