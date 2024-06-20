@@ -1,5 +1,6 @@
 import "./ArticlesCard.css"
 import { Link } from "react-router-dom";
+import { formatDateStamp } from "../Utils/component-utils";
 
 const ArticlesCard = ({article}) => {
   return (
@@ -7,9 +8,9 @@ const ArticlesCard = ({article}) => {
       <img src={article.article_img_url} />
       <h2> {article.title}</h2>
       <h3>
-        {article.created_at.slice(0, 10)}
+        {formatDateStamp(article.created_at)}
       </h3>
-      <p>Votes: {article.votes}</p>
+      <h4>{article.topic}</h4>
     </Link>
   );
 };
