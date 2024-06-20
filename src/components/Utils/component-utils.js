@@ -39,3 +39,8 @@ export function formatDateStamp(timeStamp) {
 
   return event.toLocaleDateString("en-GB", options);
 }
+
+
+export function capitaliseString(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
