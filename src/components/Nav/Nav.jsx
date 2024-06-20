@@ -1,16 +1,7 @@
 import "./Nav.css";
 import { Link } from "react-router-dom";
-import { useParams, useSearchParams } from "react-router-dom";
-import { useEffect } from "react";
 
 const Nav = () => {
-
-  const { topic } = useParams();
-  console.log(topic);
-  useEffect(()=>{
-
-  },[topic])
-
   return (
     <nav>
       <Link className="nav-link" id="home" to="/">

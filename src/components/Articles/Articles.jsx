@@ -13,10 +13,10 @@ const Articles = () => {
   const [searchParams] = useSearchParams();
 
   useEffect(() => {
-    console.log(topic);
     const sort_by = searchParams.get("sort_by");
     const order = searchParams.get("order");
     setIsLoading(true);
+
     getArticles(topic, sort_by, order).then((articlesFromApi) => {
       setArticles(articlesFromApi);
       setIsLoading(false);

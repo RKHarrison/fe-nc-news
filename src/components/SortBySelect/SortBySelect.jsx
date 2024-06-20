@@ -6,8 +6,8 @@ const SortBySelect = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const handleChange = (event) => {
-        const selectValue = event.target.value.split(',');
-        setSearchParams({ sort_by: selectValue[0], order: selectValue[1] })
+        const changedValue = event.target.value.split(',');
+        setSearchParams({ sort_by: changedValue[0], order: changedValue[1] })
   };
 
   return (
@@ -17,8 +17,8 @@ const SortBySelect = () => {
       </option>
       <option value="created_at,DESC">Latest articles</option>
       <option value="created_at,ASC">Oldest articles</option>
-      <option value="votes,ASC">Votes: Low to high</option>
       <option value="votes,DESC">Votes: High to low</option>
+      <option value="votes,ASC">Votes: Low to high</option>
       <option value="comment_count,DESC">Comments: Most commented</option>
       <option value="comment_count,ASC">Comments: Least commented</option>
     </select>
