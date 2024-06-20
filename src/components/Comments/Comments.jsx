@@ -49,7 +49,7 @@ const Comments = () => {
               </li>
             ))
           ) : (
-            <li>No comments to display</li>
+            <h5>No comments to display, be the first to post about this!</h5>
           )}
         </ol>
       )}
