@@ -23,7 +23,6 @@ export const getArticles = (topic) => {
   return ncNewsApi
     .get("/articles", {params:{topic}})
     .then(({ data }) => {
-      console.log(data.articles);
       return data.articles;
     })
     .catch((err) => {

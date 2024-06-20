@@ -12,6 +12,7 @@ const Articles = () => {
 
 
   useEffect(() => {
+    setIsLoading(true)
     getArticles(topic).then((articlesFromApi) => {
       console.log(topic);
       setArticles(articlesFromApi);
