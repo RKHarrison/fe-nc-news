@@ -6,6 +6,7 @@ import NewCommentForm from "../NewCommentForm/NewCommentForm";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import { useParams } from "react-router-dom";
 import { UserContext } from "../../Context/UserContext";
+import { hasTemporaryId } from "../Utils/component-utils";
 
 const Comments = () => {
   const { user } = useContext(UserContext);
@@ -24,7 +25,11 @@ const Comments = () => {
     <article className="comments-section">
       <h2>Comments...</h2>
       {user.username ? (
-        <NewCommentForm comments={comments} setComments={setComments} />
+        comments.every(comment => !hasTemporaryId(comment)) ? (
+          <NewCommentForm comments={comments} setComments={setComments} />
+        ) : (
+          <p>Loading your comment...</p>
+        )
       ) : (
         <h5>Please log in to post a comment...</h5>
       )}
@@ -32,7 +37,7 @@ const Comments = () => {
         <LoadingSpinner />
       ) : (
         <ol className="comment-list">
-          {comments.length &&
+          {comments.length > 0 ? (
             comments.map((comment) => (
               <li key={comment.comment_id}>
                 <CommentCard
@@ -42,11 +47,13 @@ const Comments = () => {
                   setComments={setComments}
                 />
               </li>
-            ))}
+            ))
+          ) : (
+            <li>No comments to display</li>
+          )}
         </ol>
       )}
     </article>
   );
-};
-
+}
 export default Comments;
