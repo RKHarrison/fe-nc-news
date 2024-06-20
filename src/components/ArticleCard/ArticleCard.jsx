@@ -10,7 +10,7 @@ const ArticleCard = ({ article, setArticle }) => {
 
   return (
     <article>
-      <img src={article.article_img_url} />
+      <img src={article.article_img_url} alt={`stock picture representing a mock news article titled ${article.title}`}/>
       <h2> {article.title}</h2>
       <h3>
         Created by {article.author} on {formatDateStamp(article.created_at)}

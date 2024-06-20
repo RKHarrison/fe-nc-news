@@ -8,6 +8,7 @@ import Article from "./components/Article/Article";
 function App() {
   return (
     <>
+    <title>This is a tech skills bootcamp project making a front end digital news app as a portfoilio project</title>
       <Header />
       <Nav />
       <Routes>

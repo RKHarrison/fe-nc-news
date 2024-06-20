@@ -5,7 +5,7 @@ import { formatDateStamp } from "../Utils/component-utils";
 const ArticlesCard = ({article}) => {
   return (
     <Link className="article-card-link" to={`/article/${article.article_id}`}>
-      <img src={article.article_img_url} />
+      <img src={article.article_img_url} alt={`stock picture representing a mock news article titled ${article.title}`}/>
       <h2> {article.title}</h2>
       <h3>
         {formatDateStamp(article.created_at)}
