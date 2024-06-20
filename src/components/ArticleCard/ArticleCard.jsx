@@ -3,6 +3,7 @@ import "./ArticleCard.css";
 import VoteButton from "../VoteButton/VoteButton";
 import { useContext } from "react";
 import { UserContext } from "../../Context/UserContext";
+import { formatDateStamp } from "../Utils/component-utils";
 
 const ArticleCard = ({ article, setArticle }) => {
   const {user} = useContext(UserContext)
@@ -12,7 +13,7 @@ const ArticleCard = ({ article, setArticle }) => {
       <img src={article.article_img_url} />
       <h2> {article.title}</h2>
       <h3>
-        Created by {article.author} on {article.created_at.slice(0, 10)}
+        Created by {article.author} on {formatDateStamp(article.created_at)}
       </h3>
       <p>Topic: {article.topic}</p>
       <p>{article.body}</p>
