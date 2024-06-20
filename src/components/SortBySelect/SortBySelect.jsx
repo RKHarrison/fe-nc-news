@@ -1,7 +1,8 @@
+import "./SortBySelect.css"
 import { useSearchParams } from "react-router-dom";
 
 
-const SortSelect = () => {
+const SortBySelect = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const handleChange = (event) => {
@@ -24,4 +25,4 @@ const SortSelect = () => {
   );
 };
 
-export default SortSelect;
+export default SortBySelect;

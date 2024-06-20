@@ -1,10 +1,15 @@
 import "./Nav.css";
 import { Link } from "react-router-dom";
 import { useParams, useSearchParams } from "react-router-dom";
-import SortSelect from "../SortBySelect/SortBySelect";
 import { useEffect } from "react";
 
 const Nav = () => {
+
+  const { topic } = useParams();
+  console.log(topic);
+  useEffect(()=>{
+
+  },[topic])
 
   return (
     <nav>
@@ -20,8 +25,6 @@ const Nav = () => {
       <Link className="nav-link" to="/cooking">
         Cooking
       </Link>
-      <SortSelect/>
-     
     </nav>
   );
 };

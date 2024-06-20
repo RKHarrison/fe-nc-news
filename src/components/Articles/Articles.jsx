@@ -4,17 +4,18 @@ import { useState, useEffect } from "react";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import ArticlesCard from "../ArticlesCard/ArticlesCard";
 import { useParams, useSearchParams } from "react-router-dom";
+import SortBySelect from "../SortBySelect/SortBySelect";
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { topic } = useParams();
-  const [searchParams] = useSearchParams()
+  const [searchParams] = useSearchParams();
 
-  
   useEffect(() => {
-    const sort_by = searchParams.get('sort_by')
-    const order = searchParams.get('order')
+    console.log(topic);
+    const sort_by = searchParams.get("sort_by");
+    const order = searchParams.get("order");
     setIsLoading(true);
     getArticles(topic, sort_by, order).then((articlesFromApi) => {
       setArticles(articlesFromApi);
@@ -24,6 +25,10 @@ const Articles = () => {
 
   return (
     <>
+      <section className="sort-by-section">
+        <SortBySelect />
+      </section>
+
       <section className="articles-section">
         <div className="grid-wrapper">
           {isLoading ? (

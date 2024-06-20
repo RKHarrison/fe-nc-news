@@ -1,7 +1,12 @@
+.sort-by-section {
+  position: absolute;
+  right:2rem;
+}
+
 .articles-section {
   height: 100vh;
   display: block;
-  padding-top: 20px;
+  margin-top: 1rem;
   padding: 1rem;
 
   }
