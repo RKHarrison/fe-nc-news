@@ -3,18 +3,21 @@ import { getArticles } from "../../utils/api";
 import { useState, useEffect } from "react";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import ArticlesCard from "../ArticlesCard/ArticlesCard";
+import { useParams } from "react-router-dom";
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const {topic} = useParams()
 
 
   useEffect(() => {
-    getArticles().then((articlesFromApi) => {
+    getArticles(topic).then((articlesFromApi) => {
+      console.log(topic);
       setArticles(articlesFromApi);
       setIsLoading(false);
     });
-  }, []);
+  }, [topic]);
 
   return (
     <section className="articles-section">
