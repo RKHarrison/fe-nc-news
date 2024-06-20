@@ -11,18 +11,29 @@ const SortBySelect = () => {
   };
 
   return (
-    <select onChange={handleChange} defaultValue="">
-      <option value="" disabled>
+    <select onChange={handleChange} defaultValue="" aria-label="Sort articles options">
+      <option value="" disabled aria-label="Default sort option">
         Sort by...
       </option>
-      <option value="created_at,DESC">Latest articles</option>
-      <option value="created_at,ASC">Oldest articles</option>
-      <option value="votes,DESC">Votes: High to low</option>
-      <option value="votes,ASC">Votes: Low to high</option>
-      <option value="comment_count,DESC">Comments: Most commented</option>
-      <option value="comment_count,ASC">Comments: Least commented</option>
+      <option value="created_at,DESC" aria-label="Sort by latest articles">
+        Latest articles
+      </option>
+      <option value="created_at,ASC" aria-label="Sort by oldest articles">
+        Oldest articles
+      </option>
+      <option value="votes,DESC" aria-label="Sort by votes high to low">
+        Votes: High to low
+      </option>
+      <option value="votes,ASC" aria-label="Sort by votes low to high">
+        Votes: Low to high
+      </option>
+      <option value="comment_count,DESC" aria-label="Sort by most commented">
+        Comments: Most commented
+      </option>
+      <option value="comment_count,ASC" aria-label="Sort by least commented">
+        Comments: Least commented
+      </option>
     </select>
   );
-};
-
+}
 export default SortBySelect;
