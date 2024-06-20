@@ -8,7 +8,7 @@ export const postCommentByArticleId = (article_id, newComment) => {
   return ncNewsApi
     .post(`articles/${article_id}/comments`, {
       body: newComment.body,
-      username: newComment.username,
+      username: newComment.author,
     })
     .then(({ data }) => {
       return data.postedComment;
@@ -66,5 +66,18 @@ export const patchArticle = (article_id, vote) => {
       }
       console.error(err);
       return Promise.reject(err);
+    });
+};
+
+export const deleteCommentById = (comment_id) => {
+  return ncNewsApi
+    .delete(`/comments/${comment_id}`)
+    .then((response) => {
+      alert("comment deleted!");
+      console.log(response);
+    })
+    .catch((err) => {
+      alert("could not delete comment");
+      Promise.reject(err);
     });
 };

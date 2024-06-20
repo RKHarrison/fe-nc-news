@@ -1,0 +1,9 @@
+.delete-button {
+    display: flex;
+    flex-direction: row;
+}
+
+.delete-icon {
+    display: flex;
+    max-width: 50px;
+}

@@ -1,4 +1,6 @@
 .comments-section {
+  display: flex;
+  flex-direction: column;
   padding: 1rem;
   border: solid green;
   margin-top: 3rem;
@@ -17,4 +19,20 @@
 .comment-list {
   display: flex;
   flex-direction: column;
+}
+
+.comments-section li {
+  display: flex;
+  flex-direction: column;
+  max-width: 35rem;
+}
+
+.comments-section button {
+  max-width: 10rem;
+}
+
+@media (max-width: 440px) {
+  .comments-section p {
+    max-width: 17rem;
+  }
 }

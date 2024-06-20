@@ -24,7 +24,7 @@ const Comments = () => {
     <article className="comments-section">
       <h2>Comments...</h2>
       {user.username ? (
-        <NewCommentForm setComments={setComments} />
+        <NewCommentForm comments={comments} setComments={setComments} />
       ) : (
         <h5>Please log in to post a comment...</h5>
       )}
@@ -32,11 +32,17 @@ const Comments = () => {
         <LoadingSpinner />
       ) : (
         <ol className="comment-list">
-          {comments.map((comment) => (
-            <li key={comment.comment_id}>
-              <CommentCard comment={comment} />
-            </li>
-          ))}
+          {comments.length &&
+            comments.map((comment) => (
+              <li key={comment.comment_id}>
+                <CommentCard
+                  className="comment"
+                  comment={comment}
+                  comments={comments}
+                  setComments={setComments}
+                />
+              </li>
+            ))}
         </ol>
       )}
     </article>
