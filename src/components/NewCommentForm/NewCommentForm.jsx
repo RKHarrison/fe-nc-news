@@ -3,6 +3,7 @@ import { useContext, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { UserContext } from "../../Context/UserContext";
 import { postCommentByArticleId } from "../../utils/api";
+import { hasTemporaryId } from "../Utils/component-utils";
 
 const NewCommentForm = ({ comments, setComments }) => {
   const { user } = useContext(UserContext);
@@ -38,7 +39,7 @@ const NewCommentForm = ({ comments, setComments }) => {
       .then(({ comment_id }) => {
         setComments((comments) => {
           return comments.map((comment) =>
-            String(comment.comment_id).startsWith("temp")
+            hasTemporaryId(comment)
               ? { ...comment, comment_id: comment_id }
               : comment
           );
