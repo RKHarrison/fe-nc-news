@@ -6,20 +6,26 @@ nav {
   padding-top: 3px;
   padding-left: 2rem;
   border-top: solid rgb(233, 58, 58);
+  box-shadow: ;
   border-width: 1px;
   background-color:var(--primary-color);
-  color: rgb(255, 255, 255);
+  color: var(--light-color)
   font-size: large;
-  font-weight: bold;
+  font-weight: link;
 }
 
 .nav-link {
-  margin-bottom: 2px;
+  margin-bottom:0px;
   color: var(--light-color)
 }
 
 .nav-link:focus {
- text-decoration: underline;
+ border-bottom: solid var(--light-color);
+ border-width: 3px;
 }
 
+.nav-link:hover {
+  border-bottom: solid var(--light-color);
+  border-width: 3px;
+ }
 

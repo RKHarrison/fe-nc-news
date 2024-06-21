@@ -3,19 +3,19 @@ import "./ArticleCard.css";
 import VoteButton from "../VoteButton/VoteButton";
 import { useContext } from "react";
 import { UserContext } from "../../Context/UserContext";
-import { formatDateStamp } from "../Utils/component-utils";
+import { capitaliseString, formatDateStamp } from "../Utils/component-utils";
 
 const ArticleCard = ({ article, setArticle }) => {
   const {user} = useContext(UserContext)
 
   return (
     <article>
+      <p>Topic: {capitaliseString(article.topic)}</p>
       <img src={article.article_img_url} alt={`stock picture representing a mock news article titled ${article.title}`}/>
       <h2> {article.title}</h2>
       <h3>
-        Created by {article.author} on {formatDateStamp(article.created_at)}
+        Created by {article.author} <h4>{formatDateStamp(article.created_at)}</h4>
       </h3>
-      <p>Topic: {article.topic}</p>
       <p>{article.body}</p>
       <section className="article-votes-section">
         <h5>Votes: {article.votes} </h5>

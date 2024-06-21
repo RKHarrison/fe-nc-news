@@ -1,9 +1,13 @@
 .active-btn {
-    color: blue
-  }
+  color: blue;
+}
 
 .error-message {
-    margin: 1rem;
-    color: red;
-    font-size: x-large;
+  margin: 1rem;
+  color: red;
+  font-size: x-large;
+}
+
+.vote-button:hover {
+  cursor: pointer;
 }
