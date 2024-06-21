@@ -6,27 +6,10 @@ const SortBySelect = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [selectedOption, setSelectedOption] = useState("");
 
-  const refsForDisplayText = {
-    "created_at DESC": "Latest articles",
-    "created_at ASC": "Oldest articles",
-    "votes DESC": "Votes: High to low",
-    "votes ASC": "Votes: Low to high",
-    "comment_count DESC": "Comments: Most commented",
-    "comment_count ASC": "Comments: Least commented",
-  };
-
-  useEffect(() => {
-    const sort_by = searchParams.get("sort_by");
-    const order = searchParams.get("order");
-    const refKey = `${sort_by} ${order}`;
-    if (sort_by && order) {
-      setSelectedOption(`${refsForDisplayText[refKey]}`);
-    } else setSelectedOption("Sort by...");
-  }, [searchParams]);
-
   const handleChange = (event) => {
     const changedValue = event.target.value.split(",");
     setSearchParams({ sort_by: changedValue[0], order: changedValue[1] });
+    setSelectedOption(event.target.options[event.target.selectedIndex].text);
   };
 
   return (
@@ -36,7 +19,7 @@ const SortBySelect = () => {
       aria-label="Sort articles options"
     >
       <option value="" disabled aria-label="Default sort option">
-        {selectedOption}
+        Search by...
       </option>
       <option value="created_at,DESC" aria-label="Sort by latest articles">
         Latest articles
