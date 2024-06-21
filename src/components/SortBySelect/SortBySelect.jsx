@@ -4,12 +4,10 @@ import { useState, useEffect } from "react";
 
 const SortBySelect = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [selectedOption, setSelectedOption] = useState("");
 
   const handleChange = (event) => {
     const changedValue = event.target.value.split(",");
     setSearchParams({ sort_by: changedValue[0], order: changedValue[1] });
-    setSelectedOption(event.target.options[event.target.selectedIndex].text);
   };
 
   return (
