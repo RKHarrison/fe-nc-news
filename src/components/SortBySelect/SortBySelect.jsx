@@ -17,6 +17,7 @@ const SortBySelect = () => {
   };
 
   useEffect(() => {
+    
     const sort_by = searchParams.get("sort_by");
     const order = searchParams.get("order");
     const refKey = `${sort_by} ${order}`
@@ -24,7 +25,7 @@ const SortBySelect = () => {
     console.log(refsForDisplayText[refKey]);
     if (sort_by && order) {
       setSelectedOption(`${refsForDisplayText[refKey]}`);
-    }
+    } else setSelectedOption('Sort by...')
   }, [searchParams]);
 
 
