@@ -44,7 +44,7 @@ const VoteButton = ({ setArticle }) => {
 
       {apiVoteError && (
         <section className="error-message">
-          Could not register your vote, please try again!
+          Cannot register vote at this time!
         </section>
       )}
     </div>
