@@ -9,6 +9,8 @@ fieldset {
 
 article p {
   margin-top: 8px;
+  font-weight: lighter;
+  font-size:large;
 }
 article img {
   margin-bottom: 10px;
@@ -21,5 +23,10 @@ article h2 {
 
 article h3 {
   font-size: large;
+  text-shadow: 5px 3px 5px rgb(205, 203, 203);
+}
+
+article h4 {
+  font-size: medium;
   text-shadow: 5px 3px 5px rgb(205, 203, 203);
 }
