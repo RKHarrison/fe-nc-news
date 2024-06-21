@@ -1,7 +1,6 @@
-import "./SortBySelect.css"
+import "./SortBySelect.css";
 import { useSearchParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-
 
 const SortBySelect = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -13,29 +12,29 @@ const SortBySelect = () => {
     "votes DESC": "Votes: High to low",
     "votes ASC": "Votes: Low to high",
     "comment_count DESC": "Comments: Most commented",
-    "comment_count ASC": "Comments: Least commented"
+    "comment_count ASC": "Comments: Least commented",
   };
 
   useEffect(() => {
-    
     const sort_by = searchParams.get("sort_by");
     const order = searchParams.get("order");
-    const refKey = `${sort_by} ${order}`
-    console.log(refKey);
-    console.log(refsForDisplayText[refKey]);
+    const refKey = `${sort_by} ${order}`;
     if (sort_by && order) {
       setSelectedOption(`${refsForDisplayText[refKey]}`);
-    } else setSelectedOption('Sort by...')
+    } else setSelectedOption("Sort by...");
   }, [searchParams]);
 
-
   const handleChange = (event) => {
-        const changedValue = event.target.value.split(',');
-        setSearchParams({ sort_by: changedValue[0], order: changedValue[1] })
+    const changedValue = event.target.value.split(",");
+    setSearchParams({ sort_by: changedValue[0], order: changedValue[1] });
   };
 
   return (
-    <select onChange={handleChange} defaultValue="" aria-label="Sort articles options">
+    <select
+      onChange={handleChange}
+      defaultValue=""
+      aria-label="Sort articles options"
+    >
       <option value="" disabled aria-label="Default sort option">
         {selectedOption}
       </option>
@@ -59,5 +58,5 @@ const SortBySelect = () => {
       </option>
     </select>
   );
-}
+};
 export default SortBySelect;
