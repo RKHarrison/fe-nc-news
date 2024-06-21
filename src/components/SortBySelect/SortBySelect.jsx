@@ -21,7 +21,7 @@ const SortBySelect = () => {
     const order = searchParams.get("order");
     const refKey = `${sort_by} ${order}`
     console.log(refKey);
-    console.log(refsForSelectText[refKey]);
+    console.log(refsForDisplayText[refKey]);
     if (sort_by && order) {
       setSelectedOption(`${refsForDisplayText[refKey]}`);
     }
