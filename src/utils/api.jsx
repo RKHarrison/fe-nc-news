@@ -14,7 +14,6 @@ export const postCommentByArticleId = (article_id, newComment) => {
       return data.postedComment;
     })
     .catch((err) => {
-      console.log(err);
       return Promise.reject(err);
     });
 };
