@@ -9,6 +9,8 @@ fieldset {
 
 article p {
   margin-top: 8px;
+  font-weight: lighter;
+  font-size:large;
 }
 article img {
   margin-bottom: 10px;
