@@ -12,7 +12,7 @@ h1 {
 
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 600px) {
     .header-section {
       flex-direction: column; 
       align-items: flex-start; 

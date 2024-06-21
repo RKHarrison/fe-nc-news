@@ -1,8 +1,18 @@
-
+.sort-by-section {
+    position: absolute;
+    top: 6.5rem;
+    right: 1.5rem;
+  }
   
 select {
-    border: solid rgb(54, 54, 235);
+    border: solid var(--primary-color);
     border-radius: 3px;
-    background-color: 
+    opacity: 85%;
 }
 
+@media (max-width: 480px) {
+    .sort-by-section {
+        top: 7rem;
+        right: 1.5rem;
+      }
+  }

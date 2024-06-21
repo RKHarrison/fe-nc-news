@@ -36,13 +36,15 @@ const Articles = () => {
   }
   return (
     <>
+      {articles[0] && (
+        <section className="sort-by-section">
+          <SortBySelect />
+        </section>
+      )}
       {isLoading ? (
         <LoadingSpinner />
       ) : (
         <section className="articles-section">
-          <section className="sort-by-section">
-            <SortBySelect />
-          </section>
           <div className="grid-wrapper">
             <ol>
               {articles[0] && (
