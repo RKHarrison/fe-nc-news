@@ -4,6 +4,7 @@ import Header from "./components/Header/Header";
 import Nav from "./components/Nav/Nav";
 import Articles from "./components/Articles/Articles";
 import Article from "./components/Article/Article";
+import ErrorPage from "./components/ErrorPage/ErrorPage";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Header />
       <Nav />
       <Routes>
+        <Route path="*" element={<ErrorPage/>} />
         <Route path="/article/:article_id" element={<Article />} />
         <Route path="/:topic?" element={<Articles />} />
       </Routes>
