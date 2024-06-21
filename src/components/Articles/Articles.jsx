@@ -1,11 +1,11 @@
 import "./Articles.css";
+import ErrorComponent from "../ErrorComponent/ErrorComponent";
 import { getArticles } from "../../utils/api";
 import { useState, useEffect } from "react";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import ArticlesCard from "../ArticlesCard/ArticlesCard";
 import { useParams, useSearchParams } from "react-router-dom";
 import SortBySelect from "../SortBySelect/SortBySelect";
-import ErrorComponent from "../ErrorComponent/ErrorComponent";
 
 const Articles = () => {
   const [error, setError] = useState(null);
@@ -32,7 +32,7 @@ const Articles = () => {
 
 
  if (error) {
-    return (<ErrorComponent errMsg={error.message} />)
+    return (<ErrorComponent error={error} />)
   }
   return (
     <>
