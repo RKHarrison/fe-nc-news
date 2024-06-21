@@ -1,5 +1,6 @@
 .sort-by-section {
   position: absolute;
+  top: 10.7rem;
   right: 2rem;
 }
 
@@ -36,17 +37,6 @@ li > img {
 .articles-section p {
   font-size: x-small;
 }
-
-
-/* .link {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 0.5rem;
-
-  } */
 
 .link:hover {
   text-decoration: underline;
