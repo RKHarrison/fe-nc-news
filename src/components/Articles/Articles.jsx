@@ -13,9 +13,9 @@ const Articles = () => {
   const [searchParams] = useSearchParams();
 
   useEffect(() => {
+    setIsLoading(true);
     const sort_by = searchParams.get("sort_by");
     const order = searchParams.get("order");
-    setIsLoading(true);
 
     getArticles(topic, sort_by, order).then((articlesFromApi) => {
       setArticles(articlesFromApi);

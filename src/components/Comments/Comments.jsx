@@ -24,8 +24,9 @@ const Comments = () => {
   return (
     <article className="comments-section">
       <h2>Comments...</h2>
+
       {user.username ? (
-        comments.every(comment => !hasTemporaryId(comment)) ? (
+        comments.every((comment) => !hasTemporaryId(comment)) ? (
           <NewCommentForm comments={comments} setComments={setComments} />
         ) : (
           <p>Loading your comment...</p>
@@ -33,6 +34,7 @@ const Comments = () => {
       ) : (
         <h5>Please log in to post a comment...</h5>
       )}
+
       {isLoading ? (
         <LoadingSpinner />
       ) : (
@@ -55,5 +57,5 @@ const Comments = () => {
       )}
     </article>
   );
-}
+};
 export default Comments;
