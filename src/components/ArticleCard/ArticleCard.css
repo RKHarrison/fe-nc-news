@@ -1,9 +1,25 @@
 fieldset {
-    border: solid orange;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
+  border: solid orange;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
 }
 
+article p {
+  margin-top: 8px;
+}
+article img {
+  margin-bottom: 10px;
+}
+
+article h2 {
+  font-size: xx-large;
+  text-shadow: 5px 3px 5px rgb(205, 203, 203);
+}
+
+article h3 {
+  font-size: large;
+  text-shadow: 5px 3px 5px rgb(205, 203, 203);
+}

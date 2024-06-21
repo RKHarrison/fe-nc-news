@@ -37,7 +37,10 @@ const Articles = () => {
             <ol>
               {articles[0] && (
                 <li key={articles[0].article_id} className="main-article">
-                  <ArticlesCard article={articles[0]} />
+                  <ArticlesCard
+                    classname="articles-card"
+                    article={articles[0]}
+                  />
                 </li>
               )}
               {articles.slice(1).map((article) => (

@@ -1,3 +1,5 @@
+
+
 import "./UserCard.css";
 import { FaUser } from "react-icons/fa";
 import { useContext } from "react";
@@ -17,12 +19,12 @@ const UserCard = () => {
       <section className="user-card">
         {!user.username ? (
           <div className="log-in" onClick={() => setUser(devUser)}>
-            <h3>Click the icon to login</h3>
+            <h3 className="hover-underline-animation">Click the icon to login</h3>
             <FaUser className="avatar-placeholder" />
           </div>
         ) : (
           <>
-            <h3>News for {user.name}</h3>
+            <h3>News for {user.name.split(' ')[0]}</h3>
             <img src={user.avatar_url} className="user-thumbnail" />
             <button onClick={() => setUser({})}>Logout</button>
           </>

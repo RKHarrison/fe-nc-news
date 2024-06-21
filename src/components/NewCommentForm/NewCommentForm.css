@@ -2,7 +2,8 @@ form {
     display: flex;
     flex-direction: column;
     padding: 0.5rem;
-    border: solid green;
+    margin-bottom: 10px;
+    border: dotted lightgray;
 
 }
 

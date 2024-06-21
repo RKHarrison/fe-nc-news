@@ -32,7 +32,7 @@ const VoteButton = ({ setArticle }) => {
   };
 
   return (
-    <>
+    <div className="vote-button" aria="like or dislike this article">
       <FaArrowCircleDown
         className={storedVote === -1 ? "active-btn" : ""}
         onClick={() => handleVoteClick(-1)}
@@ -47,8 +47,9 @@ const VoteButton = ({ setArticle }) => {
           Could not register your vote, please try again!
         </section>
       )}
-    </>
+    </div>
   );
 };
 
 export default VoteButton;
+

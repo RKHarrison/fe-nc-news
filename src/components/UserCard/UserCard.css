@@ -7,7 +7,9 @@
 }
 
 .user-card button {
-  margin-left: 0.5rem;
+  margin-left: 0rem;
+  border: 0;
+  font-weight: bolder;
 }
 
 .user-card h3 {
@@ -22,6 +24,8 @@
   max-width: 3rem;
   max-height: 2rem;
 }
+.user-thumbnail:hover {
+}
 
 .log-in {
   display: flex;
@@ -29,6 +33,34 @@
 }
 
 .avatar-placeholder {
-  color: black
+  color: black;
 }
 
+.avatar-placeholder:hover {
+  border-bottom: solid black;
+  border-width: 3px;
+}
+
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+  color: #0087ca;
+}
+
+.hover-underline-animation::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #0087ca;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
