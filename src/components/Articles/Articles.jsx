@@ -25,15 +25,14 @@ const Articles = () => {
 
   return (
     <>
-      <section className="sort-by-section">
-        <SortBySelect />
-      </section>
-
-      <section className="articles-section">
-        <div className="grid-wrapper">
-          {isLoading ? (
-            <LoadingSpinner />
-          ) : (
+      {isLoading ? (
+        <LoadingSpinner />
+      ) : (
+        <section className="articles-section">
+          <section className="sort-by-section">
+            <SortBySelect />
+          </section>
+          <div className="grid-wrapper">
             <ol>
               {articles[0] && (
                 <li key={articles[0].article_id} className="main-article">
@@ -49,9 +48,9 @@ const Articles = () => {
                 </li>
               ))}
             </ol>
-          )}
-        </div>
-      </section>
+          </div>
+        </section>
+      )}
     </>
   );
 };
