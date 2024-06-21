@@ -13,9 +13,9 @@ function App() {
       <Header />
       <Nav />
       <Routes>
-        <Route path="*" element={<ErrorPage/>} />
         <Route path="/article/:article_id" element={<Article />} />
         <Route path="/:topic?" element={<Articles />} />
+        <Route path="*" element={<ErrorPage/>} />
       </Routes>
     </>
   );

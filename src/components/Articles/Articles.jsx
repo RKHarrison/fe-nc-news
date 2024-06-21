@@ -5,8 +5,10 @@ import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import ArticlesCard from "../ArticlesCard/ArticlesCard";
 import { useParams, useSearchParams } from "react-router-dom";
 import SortBySelect from "../SortBySelect/SortBySelect";
+import ErrorComponent from "../ErrorComponent/ErrorComponent";
 
 const Articles = () => {
+  const [error, setError] = useState(null);
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { topic } = useParams();
@@ -17,12 +19,21 @@ const Articles = () => {
     const sort_by = searchParams.get("sort_by");
     const order = searchParams.get("order");
 
-    getArticles(topic, sort_by, order).then((articlesFromApi) => {
-      setArticles(articlesFromApi);
-      setIsLoading(false);
-    });
+    getArticles(topic, sort_by, order)
+      .then((articlesFromApi) => {
+        setArticles(articlesFromApi);
+        setIsLoading(false);
+      })
+      .catch((err) => 
+        setError(err)
+      )
+        
   }, [topic, searchParams]);
 
+
+ if (error) {
+    return (<ErrorComponent errMsg={error.message} />)
+  }
   return (
     <>
       {isLoading ? (

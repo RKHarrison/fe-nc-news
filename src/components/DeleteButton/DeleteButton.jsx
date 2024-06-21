@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 
 const DeleteButton = ({ comment, comments, setComments }) => {
-  const { article_id } = useParams();
   const [backupComments, setBackupComments] = useState({});
 
   const handleClick = (event) => {
