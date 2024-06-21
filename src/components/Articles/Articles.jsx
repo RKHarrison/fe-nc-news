@@ -6,6 +6,7 @@ import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import ArticlesHeadlinesCard from "../ArticlesHeadlinesCard/ArticlesHeadlinesCard";
 import { useParams, useSearchParams } from "react-router-dom";
 import SortBySelect from "../SortBySelect/SortBySelect";
+import Pagination from "../Pagination/Pagitnation";
 
 const Articles = () => {
   const [error, setError] = useState(null);
@@ -62,6 +63,7 @@ const Articles = () => {
               ))}
             </ol>
           </div>
+          <Pagination/>
         </section>
       )}
     </>
