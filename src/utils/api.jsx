@@ -37,7 +37,7 @@ export const getArticleById = (article_id) => {
       return data.article;
     })
     .catch((err) => {
-      console.log(err);
+      return Promise.reject(err)
     });
 };
 
@@ -48,7 +48,7 @@ export const getCommentsByArticleId = (article_id) => {
       return data.comments;
     })
     .catch((err) => {
-      console.log(err);
+      return Promise.reject(err)
     });
 };
 
@@ -59,12 +59,6 @@ export const patchArticle = (article_id, vote) => {
       return data.patchedArticle;
     })
     .catch((err) => {
-      if (err.response?.status === 404) {
-        console.error(
-          `Could not find article with id=${article_id} for vote patch request`
-        );
-      }
-      console.error(err);
       return Promise.reject(err);
     });
 };
@@ -72,12 +66,10 @@ export const patchArticle = (article_id, vote) => {
 export const deleteCommentById = (comment_id) => {
   return ncNewsApi
     .delete(`/comments/${comment_id}`)
-    .then((response) => {
+    .then(() => {
       alert("comment deleted!");
-      console.log(response);
     })
     .catch((err) => {
-      alert("could not delete comment");
-      Promise.reject(err);
+      return Promise.reject(err);
     });
 };
