@@ -1,18 +1,18 @@
-import './Pagination.css'
+import "./Pagination.css";
 
 const Pagination = () => {
+
+const handleClick = (page) => {
+  console.log(page);
+};
+
   return (
-    <div class="pagination">
-      <a href="#">&laquo;</a>
-      <a href="#">1</a>
-      <a href="#" class="active">
-        2
-      </a>
-      <a href="#">3</a>
-      <a href="#">4</a>
-      <a href="#">5</a>
-      <a href="#">6</a>
-      <a href="#">&raquo;</a>
+    <div className="pagination">
+      <button onClick={() => handleClick(-1)}>&laquo;</button>
+      <button onClick={() => handleClick(1)}>1</button>
+      <button onClick={() => handleClick(2)}>2</button>
+      <button onClick={() => handleClick(3)}>3</button>
+      <button onClick={() => handleClick(+1)}>&raquo;</button>
     </div>
   );
 };
