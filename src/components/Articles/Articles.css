@@ -15,26 +15,15 @@ ol {
   margin: 0;
 }
 
-.main-article {
+.lead-article {
   grid-column: 1 / span 6;
   grid-row: 1 / span 2;
 }
 
-.norm-article {
+.headline-article {
   grid-column: span 2;
   grid-row: span 1;
   font-size: small;
-}
-li > img {
-  width: 70%;
-}
-
-.articles-section p {
-  font-size: x-small;
-}
-
-.link:hover {
-  text-decoration: underline;
 }
 
 @media (max-width: 1280px) {
@@ -47,7 +36,7 @@ li > img {
   ol {
     grid-template-columns: repeat(6, 1fr);
   }
-  .main-article {
+  .lead-article {
     grid-column: span 4;
   }
 }
@@ -56,10 +45,22 @@ li > img {
   ol {
     grid-template-columns: repeat(2, 1fr);
   }
-  .main-article {
+  .lead-article {
     grid-column: span 2;
   }
-  .norm-article {
+  .headline-article {
     grid-column: span 1;
   }
+}
+
+li > img {
+  width: 70%;
+}
+
+.articles-section p {
+  font-size: x-small;
+}
+
+.link:hover {
+  text-decoration: underline;
 }

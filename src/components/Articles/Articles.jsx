@@ -3,9 +3,10 @@ import ErrorComponent from "../ErrorComponent/ErrorComponent";
 import { getArticles } from "../../utils/api";
 import { useState, useEffect } from "react";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
-import ArticlesCard from "../ArticlesCard/ArticlesCard";
+import ArticlesHeadlinesCard from "../ArticlesHeadlinesCard/ArticlesHeadlinesCard";
 import { useParams, useSearchParams } from "react-router-dom";
 import SortBySelect from "../SortBySelect/SortBySelect";
+import Pagination from "../Pagination/Pagitnation";
 
 const Articles = () => {
   const [error, setError] = useState(null);
@@ -48,20 +49,21 @@ const Articles = () => {
           <div className="grid-wrapper">
             <ol>
               {articles[0] && (
-                <li key={articles[0].article_id} className="main-article">
-                  <ArticlesCard
+                <li key={articles[0].article_id} className="lead-article">
+                  <ArticlesHeadlinesCard
                     classname="articles-card"
                     article={articles[0]}
                   />
                 </li>
               )}
               {articles.slice(1).map((article) => (
-                <li key={article.article_id} className="norm-article">
-                  <ArticlesCard article={article} />
+                <li key={article.article_id} className="headline-article">
+                  <ArticlesHeadlinesCard article={article} />
                 </li>
               ))}
             </ol>
           </div>
+          <Pagination/>
         </section>
       )}
     </>

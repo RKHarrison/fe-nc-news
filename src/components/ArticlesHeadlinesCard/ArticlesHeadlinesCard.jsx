@@ -1,9 +1,9 @@
-import "./ArticlesCard.css";
+import "./ArticlesHeadlinesCard.css";
 import { Link } from "react-router-dom";
 import { capitaliseString, formatDateStamp } from "../Utils/component-utils";
 
 const ArticlesCard = ({ article }) => {
-
+console.log(article);
 
   return (
     <>
