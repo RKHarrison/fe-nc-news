@@ -10,11 +10,11 @@ const Nav = () => {
       <Link className="nav-link" to="/coding">
         Coding
       </Link>
-      <Link className="nav-link" to="/football">
-        Football
-      </Link>
       <Link className="nav-link" to="/cooking">
         Cooking
+      </Link>
+      <Link className="nav-link" to="/football">
+        Football
       </Link>
     </nav>
   );
