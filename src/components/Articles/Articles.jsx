@@ -17,26 +17,22 @@ const Articles = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    const sort_by = searchParams.get("sort_by");
-    const order = searchParams.get("order");
-    const p = searchParams.get("p")
-    const limit = searchParams.get("limit")
-  
+    
+    const updatedSearchParams = {};
+    searchParams.forEach((value, key) => {
+      updatedSearchParams[key] = value;
+    });
 
-    getArticles(topic, sort_by, order, p, limit)
+    getArticles(topic, updatedSearchParams)
       .then((articlesFromApi) => {
         setArticles(articlesFromApi);
         setIsLoading(false);
       })
-      .catch((err) => 
-        setError(err)
-      )
-        
+      .catch((err) => setError(err));
   }, [topic, searchParams]);
 
-
- if (error) {
-    return (<ErrorComponent error={error} />)
+  if (error) {
+    return <ErrorComponent error={error} />;
   }
   return (
     <>
@@ -50,7 +46,7 @@ const Articles = () => {
       ) : (
         <section className="articles-section">
           <div className="grid-wrapper">
-              <Pagination/>
+            <Pagination />
             <ol>
               {articles[0] && (
                 <li key={articles[0].article_id} className="lead-article">
@@ -60,7 +56,7 @@ const Articles = () => {
                   />
                 </li>
               )}
-              {articles.slice(1-13).map((article) => (
+              {articles.slice(1 - 13).map((article) => (
                 <li key={article.article_id} className="headline-article">
                   <ArticlesHeadlinesCard article={article} />
                 </li>

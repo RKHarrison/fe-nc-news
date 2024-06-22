@@ -4,14 +4,8 @@ import { useSearchParams } from "react-router-dom";
 const Pagination = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  // console.log(order);
   const handleClick = (page) => {
-    const order = searchParams.getAll("order");
-    const sort_by = searchParams.get("sort_by");
-
     setSearchParams(() => ({
-      order: order,
-      sort_by: sort_by,
       p: page,
       limit: 13,
     }));
