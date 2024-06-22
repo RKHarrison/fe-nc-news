@@ -7,7 +7,7 @@
 select {
     border: solid var(--primary-color);
     border-radius: 3px;
-    opacity: 85%;
+    opacity: 90%;
 }
 
 @media (max-width: 480px) {
