@@ -8,30 +8,37 @@ const Pagination = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
-    setCurrentPage(Number(searchParams.get("p") || 1));
+    const pageNumberFromUrl = Number(searchParams.get("p"));
+    setCurrentPage(pageNumberFromUrl || 1);
   }, [searchParams]);
 
-  const handleClick = (clickedPage) => {
+  const handleClick = (clickedPageNumber) => {
     const pageQuery =
-      typeof clickedPage === "number"
-        ? clickedPage
-        : currentPage + Number(clickedPage);
-    const validatedPageQuery = pageQuery > 0 ? pageQuery : 1;
+      typeof clickedPageNumber === "number"
+        ? clickedPageNumber
+        : currentPage + Number(clickedPageNumber);
+
     const newPageNums =
       pageQuery > 1 ? [pageQuery - 1, pageQuery, pageQuery + 1] : [1, 2, 3];
 
     setPageNumbers(newPageNums);
     setSearchParams(() => ({
-      p: validatedPageQuery,
+      p: pageQuery || 1,
       limit: 13,
     }));
   };
 
   return (
     <div className="pagination">
-      <button className="pag-arrow" onClick={() => handleClick("-1")}>
-        &laquo;
-      </button>
+      {currentPage <= 1 ? (
+        <button disabled className="pag-arrow">
+          &laquo;
+        </button>
+      ) : (
+        <button className="pag-arrow" onClick={() => handleClick("-1")}>
+          &laquo;
+        </button>
+      )}
       {pageNumbers.map((pageNum) => (
         <button
           key={pageNum}
