@@ -36,34 +36,36 @@ const Articles = () => {
   }
   return (
     <>
-      {articles[0] && (
-        <section className="sort-by-section">
-          <SortBySelect />
-        </section>
-      )}
-      {isLoading ? (
-        <LoadingSpinner />
+      {articles[0] ? (
+        <>
+          <section className="sort-by-section">
+            <SortBySelect />
+          </section>
+          {isLoading ? (
+            <LoadingSpinner />
+          ) : (
+            <section className="articles-section">
+              <div className="grid-wrapper">
+                <Pagination />
+                <ol>
+                  <li key={articles[0].article_id} className="lead-article">
+                    <ArticlesHeadlinesCard
+                      classname="articles-card"
+                      article={articles[0]}
+                    />
+                  </li>
+                  {articles.slice(1, 13).map((article) => (
+                    <li key={article.article_id} className="headline-article">
+                      <ArticlesHeadlinesCard article={article} />
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            </section>
+          )}
+        </>
       ) : (
-        <section className="articles-section">
-          <div className="grid-wrapper">
-            <Pagination />
-            <ol>
-              {articles[0] && (
-                <li key={articles[0].article_id} className="lead-article">
-                  <ArticlesHeadlinesCard
-                    classname="articles-card"
-                    article={articles[0]}
-                  />
-                </li>
-              )}
-              {articles.slice(1 - 13).map((article) => (
-                <li key={article.article_id} className="headline-article">
-                  <ArticlesHeadlinesCard article={article} />
-                </li>
-              ))}
-            </ol>
-          </div>
-        </section>
+        <h2>No articles to display!</h2>
       )}
     </>
   );
