@@ -17,7 +17,7 @@ const Articles = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    
+
     const updatedSearchParams = {};
     searchParams.forEach((value, key) => {
       updatedSearchParams[key] = value;
