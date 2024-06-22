@@ -21,7 +21,7 @@ const SortBySelect = () => {
       aria-label="Sort articles options"
     >
       <option value="" disabled aria-label="Default sort option">
-        Search by...
+        Sort articles by...
       </option>
       <option value="created_at,DESC" aria-label="Sort by latest articles">
         Latest articles
