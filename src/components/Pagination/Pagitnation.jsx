@@ -1,10 +1,21 @@
 import "./Pagination.css";
+import { useSearchParams } from "react-router-dom";
 
 const Pagination = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
 
-const handleClick = (page) => {
-  console.log(page);
-};
+  // console.log(order);
+  const handleClick = (page) => {
+    const order = searchParams.getAll("order");
+    const sort_by = searchParams.get("sort_by");
+
+    setSearchParams(() => ({
+      order: order,
+      sort_by: sort_by,
+      p: page,
+      limit: 13,
+    }));
+  };
 
   return (
     <div className="pagination">

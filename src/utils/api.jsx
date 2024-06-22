@@ -18,9 +18,9 @@ export const postCommentByArticleId = (article_id, newComment) => {
     });
 };
 
-export const getArticles = (topic, sort_by, order) => {
+export const getArticles = (topic, sort_by, order, p, limit) => {
   return ncNewsApi
-    .get("/articles", {params:{topic: topic, sort_by: sort_by, order: order}})
+    .get("/articles", {params:{topic: topic, sort_by: sort_by, order: order, p:p, limit:limit}})
     .then(({ data }) => {
       return data.articles;
     })
