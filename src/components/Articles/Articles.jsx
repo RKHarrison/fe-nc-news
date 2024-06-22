@@ -36,7 +36,6 @@ const Articles = () => {
   }
   return (
     <>
-      <Pagination />
       {articles[0] ? (
         <>
           <section className="sort-by-section">
@@ -62,11 +61,15 @@ const Articles = () => {
                   ))}
                 </ol>
               </div>
+              <Pagination />
             </section>
           )}
         </>
       ) : (
-        <h2>No articles to display!</h2>
+        <section className="articles-section">
+          <h2>No articles to display!</h2>
+          <Pagination />
+        </section>
       )}
     </>
   );

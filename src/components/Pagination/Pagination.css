@@ -23,15 +23,15 @@
 }
 
 .pagination button.active {
-  background-color: #4caf50;
+  background-color: var(--cat2-color);
   color: white;
   border-radius: 5px;
 }
 
 
-/* .pag-arrow {
+.pag-arrow:active {
   background-color: var(--light-color);
-  color: var(--primary-color)
+  color: var(--cat2-color)
 }
 
 .pag-number {

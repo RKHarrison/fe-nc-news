@@ -8,7 +8,7 @@ const Pagination = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
-    setCurrentPage(Number(searchParams.get("p")));
+    setCurrentPage(Number(searchParams.get("p") || 1));
   }, [searchParams]);
 
   const handleClick = (clickedPage) => {
