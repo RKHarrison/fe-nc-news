@@ -1,30 +1,49 @@
 import "./Pagination.css";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
 const Pagination = () => {
+  const [pageNumbers, setPageNumbers] = useState([1, 2, 3]);
+  const [currentPage, setCurrentPage] = useState(1);
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const handleClick = (selectedPage) => {
-    const previousPage = searchParams.get("p");
-    const pageRequest =
-      typeof selectedPage === "number"
-        ? selectedPage
-        : Number(previousPage) + Number(selectedPage);
-    const varifiedPageRequest = pageRequest > 1 ? pageRequest : 1;
+  useEffect(() => {
+    setCurrentPage(Number(searchParams.get("p")));
+  }, [searchParams]);
 
+  const handleClick = (clickedPage) => {
+    const pageQuery =
+      typeof clickedPage === "number"
+        ? clickedPage
+        : currentPage + Number(clickedPage);
+    const validatedPageQuery = pageQuery > 0 ? pageQuery : 1;
+    const newPageNums =
+      pageQuery > 1 ? [pageQuery - 1, pageQuery, pageQuery + 1] : [1, 2, 3];
+
+    setPageNumbers(newPageNums);
     setSearchParams(() => ({
-      p: varifiedPageRequest,
+      p: validatedPageQuery,
       limit: 13,
     }));
   };
 
   return (
     <div className="pagination">
-      <button onClick={() => handleClick("-1")}>&laquo;</button>
-      <button onClick={() => handleClick(1)}>1</button>
-      <button onClick={() => handleClick(2)}>2</button>
-      <button onClick={() => handleClick(3)}>3</button>
-      <button onClick={() => handleClick("+1")}>&raquo;</button>
+      <button className="pag-arrow" onClick={() => handleClick("-1")}>
+        &laquo;
+      </button>
+      {pageNumbers.map((pageNum) => (
+        <button
+          key={pageNum}
+          className={pageNum === currentPage ? "active" : ""}
+          onClick={() => handleClick(pageNum)}
+        >
+          {pageNum}
+        </button>
+      ))}
+      <button className="pag-arrow" onClick={() => handleClick("+1")}>
+        &raquo;
+      </button>
     </div>
   );
 };

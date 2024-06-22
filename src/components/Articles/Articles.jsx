@@ -36,6 +36,7 @@ const Articles = () => {
   }
   return (
     <>
+      <Pagination />
       {articles[0] ? (
         <>
           <section className="sort-by-section">
@@ -46,7 +47,6 @@ const Articles = () => {
           ) : (
             <section className="articles-section">
               <div className="grid-wrapper">
-                <Pagination />
                 <ol>
                   <li key={articles[0].article_id} className="lead-article">
                     <ArticlesHeadlinesCard
@@ -54,6 +54,7 @@ const Articles = () => {
                       article={articles[0]}
                     />
                   </li>
+
                   {articles.slice(1, 13).map((article) => (
                     <li key={article.article_id} className="headline-article">
                       <ArticlesHeadlinesCard article={article} />

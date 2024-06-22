@@ -8,10 +8,18 @@
 }
 
 .pagination button {
+  background-color: var(--light-color);
+  border: none;
+  font-size: x-large;
   color: black;
-  float: center;
+  float: left;
   padding: 8px 16px;
-  text-decoration: none;
+
+} 
+
+.pagination button:hover:not(.active) {
+  background-color: #ddd;
+  border-radius: 5px;
 }
 
 .pagination button.active {
@@ -20,7 +28,14 @@
   border-radius: 5px;
 }
 
-.pagination button:hover:not(.active) {
-  background-color: #ddd;
-  border-radius: 5px;
+
+/* .pag-arrow {
+  background-color: var(--light-color);
+  color: var(--primary-color)
 }
+
+.pag-number {
+  border: solid var(--primary-color);
+  background-color: var(--off-primary);
+  color: var(--light-color)
+} */
