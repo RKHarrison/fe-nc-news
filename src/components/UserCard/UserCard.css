@@ -64,3 +64,21 @@
   transform: scaleX(1);
   transform-origin: bottom left;
 }
+
+.logout-button {
+  position: absolute;
+  top: 3rem;
+  right: 1rem;
+  background-color: var(--primary-color);
+  font-size: medium;
+  color: var(--light-color);
+}
+
+.logout-button:hover {
+  position: absolute;
+  top: 3rem;
+  right: 1rem;
+  background-color: var(--primary-color);
+  font-size: medium;
+  color: var(--cat3-color);
+}

@@ -19,14 +19,14 @@ const UserCard = () => {
       <section className="user-card">
         {!user.username ? (
           <div className="log-in" onClick={() => setUser(devUser)}>
-            <h3 className="hover-underline-animation">Click the icon to login</h3>
+            <h3 className="hover-underline-animation">Click the icon to log in</h3>
             <FaUser className="avatar-placeholder" />
           </div>
         ) : (
           <>
             <h3>News for {user.name.split(' ')[0]}</h3>
             <img src={user.avatar_url} className="user-thumbnail" />
-            <button onClick={() => setUser({})}>Logout</button>
+            <button className="logout-button" onClick={() => setUser({})}>Log out</button>
           </>
         )}
       </section>
