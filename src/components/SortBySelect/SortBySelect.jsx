@@ -7,7 +7,11 @@ const SortBySelect = () => {
 
   const handleChange = (event) => {
     const changedValue = event.target.value.split(",");
-    setSearchParams({ sort_by: changedValue[0], order: changedValue[1] });
+    setSearchParams((previousSearchParams) => ({
+      ...previousSearchParams,
+      sort_by: changedValue[0],
+      order: changedValue[1],
+    }));
   };
 
   return (
