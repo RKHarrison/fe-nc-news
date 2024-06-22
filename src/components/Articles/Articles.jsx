@@ -56,7 +56,7 @@ const Articles = () => {
                   />
                 </li>
               )}
-              {articles.slice(1).map((article) => (
+              {articles.slice(1-13).map((article) => (
                 <li key={article.article_id} className="headline-article">
                   <ArticlesHeadlinesCard article={article} />
                 </li>

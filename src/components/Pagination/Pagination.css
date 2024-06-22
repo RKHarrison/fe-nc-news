@@ -1,12 +1,15 @@
 .pagination {
-  display: absolute;
-  top: 0px;
-  right: 0px;
+  position: float;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
 }
 
 .pagination a {
   color: black;
-  float: left;
+  float: center;
   padding: 8px 16px;
   text-decoration: none;
 }
