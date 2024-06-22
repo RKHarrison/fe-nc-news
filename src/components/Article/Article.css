@@ -42,3 +42,12 @@
       max-width: 100%;
     }
   }
+
+  @media (max-width: 480px) {
+    article > img {
+      max-width: 100%;
+     }
+     article {
+      max-width: 98%;
+    }
+  }
