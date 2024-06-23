@@ -12,7 +12,7 @@ select {
 
 @media (max-width: 480px) {
     .sort-by-section {
-        top: 7rem;
-        right: 0.5rem;
+        top: 0.5rem;
+        left: 1rem
       }
   }

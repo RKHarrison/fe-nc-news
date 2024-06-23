@@ -1,7 +1,7 @@
 .user-card {
   display: flex;
   position: absolute;
-  top: 5px;
+  top: .65rem;
   right: 10px;
   color: white;
 }
@@ -20,11 +20,9 @@
 
 .user-thumbnail {
   color: black;
-  margin-left: 1rem;
-  max-width: 3rem;
+  margin-left: 0.1rem;
+  max-width: 2rem;
   max-height: 2rem;
-}
-.user-thumbnail:hover {
 }
 
 .log-in {
@@ -34,6 +32,8 @@
 
 .avatar-placeholder {
   color: black;
+  width: 20px;
+  height: 20px;
 }
 
 .avatar-placeholder:hover {
