@@ -65,8 +65,8 @@ const Articles = () => {
             </>
           ) : (
             <section className="articles-section">
-              <h2>No articles to display!</h2>
-              <Link to='/'>Take me home</Link>
+              <h2>No more articles to display!</h2>
+              <Link className="link" to='/'>Take me home</Link>
             </section>
           )}
         </>
