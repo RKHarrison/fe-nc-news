@@ -33,43 +33,43 @@ const Articles = () => {
 
   if (error) {
     return <ErrorComponent error={error} />;
-  }
-  return (
+  }return (
     <>
-      {articles[0] ? (
+      {isLoading ? (
+        <LoadingSpinner />
+      ) : (
         <>
-          <section className="sort-by-section">
-            <SortBySelect />
-          </section>
-          {isLoading ? (
-            <LoadingSpinner />
+          {articles[0] ? (
+            <>
+              <section className="sort-by-section">
+                <SortBySelect />
+              </section>
+              <section className="articles-section">
+                <div className="grid-wrapper">
+                  <ol>
+                    <li key={articles[0].article_id} className="lead-article">
+                      <ArticlesHeadlinesCard
+                        classname="articles-card"
+                        article={articles[0]}
+                      />
+                    </li>
+                    {articles.slice(1, 13).map((article) => (
+                      <li key={article.article_id} className="headline-article">
+                        <ArticlesHeadlinesCard article={article} />
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+                <Pagination />
+              </section>
+            </>
           ) : (
             <section className="articles-section">
-              <div className="grid-wrapper">
-                <ol>
-                  <li key={articles[0].article_id} className="lead-article">
-                    <ArticlesHeadlinesCard
-                      classname="articles-card"
-                      article={articles[0]}
-                    />
-                  </li>
-
-                  {articles.slice(1, 13).map((article) => (
-                    <li key={article.article_id} className="headline-article">
-                      <ArticlesHeadlinesCard article={article} />
-                    </li>
-                  ))}
-                </ol>
-              </div>
+              <h2>No articles to display!</h2>
               <Pagination />
             </section>
           )}
         </>
-      ) : (
-        <section className="articles-section">
-          <h2>No articles to display!</h2>
-          <Pagination />
-        </section>
       )}
     </>
   );
