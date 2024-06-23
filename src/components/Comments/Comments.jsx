@@ -39,7 +39,7 @@ const Comments = () => {
         <LoadingSpinner />
       ) : (
         <ol className="comment-list">
-          {comments.length > 0 ? (
+          {comments.length ? (
             comments.map((comment) => (
               <li key={comment.comment_id}>
                 <CommentCard

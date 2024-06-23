@@ -67,18 +67,20 @@
 
 .logout-button {
   position: absolute;
-  top: 3rem;
-  right: 1rem;
+  top: 6.4rem;
+  left: 1rem;
   background-color: var(--primary-color);
   font-size: medium;
   color: var(--light-color);
 }
 
 .logout-button:hover {
-  position: absolute;
-  top: 3rem;
-  right: 1rem;
-  background-color: var(--primary-color);
   font-size: medium;
   color: var(--cat3-color);
+}
+
+@media (max-width: 480px) {
+  .logout-button {
+    top: 2.9rem
+  }
 }
