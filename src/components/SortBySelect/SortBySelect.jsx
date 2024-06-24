@@ -1,24 +1,32 @@
 import "./SortBySelect.css";
 import { useSearchParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const SortBySelect = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+  const [selectedOption, setSelectedOption] = useState("");
+
+  useEffect(() => {
+    const sort_by = searchParams.get("sort_by");
+    const order = searchParams.get("order");
+    setSelectedOption(sort_by && order ? `${sort_by},${order}` : "");
+  }, []);
 
   const handleChange = (event) => {
-    const changedValue = event.target.value.split(",");
+    const [sort_by, order] = event.target.value.split(",");
     setSearchParams((previousSearchParams) => ({
       ...previousSearchParams,
-      sort_by: changedValue[0],
-      order: changedValue[1],
+      sort_by: sort_by,
+      order: order,
     }));
   };
+
 
   return (
     <select
       onChange={handleChange}
-      defaultValue=""
       aria-label="Sort articles options"
+      value={selectedOption}
     >
       <option value="" disabled aria-label="Default sort option">
         Sort articles by...
