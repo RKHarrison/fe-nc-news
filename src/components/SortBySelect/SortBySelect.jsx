@@ -4,7 +4,13 @@ import { useEffect, useState } from "react";
 
 const SortBySelect = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [selectedParams, setSelectedParams] = useState("");
+  const [selectedOption, setSelectedOption] = useState("");
+
+  useEffect(() => {
+    const sort_by = searchParams.get("sort_by");
+    const order = searchParams.get("order");
+    setSelectedOption(sort_by && order ? `${sort_by},${order}` : "");
+  }, []);
 
   const handleChange = (event) => {
     const [sort_by, order] = event.target.value.split(",");
@@ -15,17 +21,12 @@ const SortBySelect = () => {
     }));
   };
 
-  useEffect(() => {
-    const sort_by = searchParams.get("sort_by");
-    const order = searchParams.get("order");
-    setSelectedParams(sort_by && order ? `${sort_by},${order}` : "");
-  }, [searchParams]);
 
   return (
     <select
       onChange={handleChange}
       aria-label="Sort articles options"
-      value={selectedParams}
+      value={selectedOption}
     >
       <option value="" disabled aria-label="Default sort option">
         Sort articles by...
