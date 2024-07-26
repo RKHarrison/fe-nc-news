@@ -60,6 +60,11 @@ button:hover {
   cursor: pointer;
 }
 
-section {
-  display: flex;
+.article-section {
+  display: flex !important;
+  flex-direction: column !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 2rem !important;
 }
